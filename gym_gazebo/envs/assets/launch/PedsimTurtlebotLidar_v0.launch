@@ -31,7 +31,7 @@
   </include>
 
   <!-- Visualizer -->
-  <!--<include file="$(find pedsim_visualizer)/launch/visualizer.launch"/> -->
+  <include file="$(find pedsim_visualizer)/launch/visualizer.launch"/>
 
   <!-- ********************************** Gazebo and Turtlebot  ************************************** -->
   <arg name="world_file"  default="$(env GYM_GAZEBO_WORLD_PEDSIM)"/>

@@ -82,6 +82,9 @@ touch joystick_drivers/spacenav_node/CATKIN_IGNORE
 touch joystick_drivers/wiimote/CATKIN_IGNORE
 touch kobuki_desktop/kobuki_qtestsuite/CATKIN_IGNORE
 
+# Edit kobuki.launch.xml file which gets error
+sed -i 's/xacro --inorder/xacro.py/g' turtlebot_simulator/turtlebot_gazebo/launch/includes/kobuki.launch.xml
+
 cd ..
 catkin_make --pkg mav_msgs
 source devel/setup.bash
