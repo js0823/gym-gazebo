@@ -29,6 +29,12 @@ register(
     # More arguments here
 )
 register(
+    id='PedsimTurtlebotLidarNn-v0',
+    entry_point='gym_gazebo.envs.turtlebot:PedsimTurtlebotLidarNnEnv',
+    max_episode_steps=1000,
+    # More arguments here
+)
+register(
     id='GazeboCircuit2cTurtlebotCameraNnEnv-v0',
     entry_point='gym_gazebo.envs.turtlebot:GazeboCircuit2cTurtlebotCameraNnEnv',
     # More arguments here

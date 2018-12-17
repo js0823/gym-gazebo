@@ -5,3 +5,4 @@ from gym_gazebo.envs.turtlebot.gazebo_circuit_turtlebot_lidar import GazeboCircu
 from gym_gazebo.envs.turtlebot.gazebo_circuit2_turtlebot_lidar_nn import GazeboCircuit2TurtlebotLidarNnEnv
 from gym_gazebo.envs.turtlebot.gazebo_circuit2c_turtlebot_camera_nn import GazeboCircuit2cTurtlebotCameraNnEnv
 from gym_gazebo.envs.turtlebot.gazebo_round_turtlebot_lidar import GazeboRoundTurtlebotLidarEnv
+from gym_gazebo.envs.turtlebot.pedsim_turtlebot_lidar_nn import PedsimTurtlebotLidarNnEnv
