@@ -75,6 +75,13 @@ catkin_init_workspace
 cd ../../catkin_ws/src/
 vcs import < ../../gazebo.repos
 
+cd pedsim_ros
+git submodule update --init --recursive
+cd ..
+touch joystick_drivers/spacenav_node/CATKIN_IGNORE
+touch joystick_drivers/wiimote/CATKIN_IGNORE
+touch kobuki_desktop/kobuki_qtestsuite/CATKIN_IGNORE
+
 cd ..
 catkin_make --pkg mav_msgs
 source devel/setup.bash

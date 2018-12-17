@@ -27,19 +27,19 @@ repositories:
   ecl_core:
     type: git
     url: https://github.com/stonier/ecl_core
-    version: devel
+    version: release/0.61-indigo-kinetic
   ecl_lite:
     type: git
     url: https://github.com/stonier/ecl_lite
-    version: devel
+    version: release/0.61-indigo-kinetic
   ecl_navigation:
     type: git
     url: https://github.com/stonier/ecl_navigation
-    version: devel
+    version: release/0.61-indigo-kinetic
   ecl_tools:
     type: git
     url: https://github.com/stonier/ecl_tools
-    version: devel
+    version: release/0.61-indigo-kinetic
   driver_base:
     type: git
     url: https://github.com/ros-drivers/driver_common.git
@@ -155,4 +155,8 @@ repositories:
   yujin_ocs:
     type: git
     url: https://github.com/yujinrobot/yujin_ocs
+    version: devel
+  pedsim_ros:
+    type: git
+    url: https://github.com/srl-freiburg/pedsim_ros.git
     version: devel
