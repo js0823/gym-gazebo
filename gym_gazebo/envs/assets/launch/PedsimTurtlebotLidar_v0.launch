@@ -2,7 +2,7 @@
   <arg name="kbd_teleop" default="false"/>
   <arg name="rqt_teleop" default="false"/>
   <arg name="visualize" default="false"/>
-  <arg name="with_robot" default="false"/>
+  <arg name="with_robot" default="true"/>
 
   <arg name="simulation_factor" default="2.0"/> <!-- Speed up -->
   <arg name="update_rate" default="30.0"/> <!-- Hz -->
@@ -31,7 +31,7 @@
   </include>
 
   <!-- Visualizer -->
-  <include file="$(find pedsim_visualizer)/launch/visualizer.launch"/>
+  <!--<include file="$(find pedsim_visualizer)/launch/visualizer.launch"/> -->
 
   <!-- ********************************** Gazebo and Turtlebot  ************************************** -->
   <arg name="world_file"  default="$(env GYM_GAZEBO_WORLD_PEDSIM)"/>
