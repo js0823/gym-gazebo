@@ -2,15 +2,10 @@
   <arg name="kbd_teleop" default="false"/>
   <arg name="rqt_teleop" default="false"/>
   <arg name="visualize" default="false"/>
-  <arg name="with_robot" default="true"/>
+  <arg name="with_robot" default="false"/>
 
   <arg name="simulation_factor" default="2.0"/> <!-- Speed up -->
   <arg name="update_rate" default="25.0"/> <!-- Hz -->
-
-  <!-- Turtlebot initial position -->
-  <arg name="initial_x" value="1.0"/>
-  <arg name="initial_y" value="1.0"/>
-  <arg name="initial_theta" value="0.7"/>
 
   <!-- Simulator -->
   <include file="$(find pedsim_simulator)/launch/simulator.launch">
@@ -24,14 +19,13 @@
     <arg name="max_robot_speed" value="5"/>
     <arg name="robot_mode" value="1"/>
     <arg name="enable_groups" value="true"/>
-    <!-- Below is turtlebot's initial position on pedsim_ros -->
-    <arg name="pose_initial_x" value="$(arg initial_x)"/>
-    <arg name="pose_initial_y" value="$(arg initial_y)"/>
-    <arg name="pose_initial_theta" value="$(arg initial_theta)"/>
   </include>
 
   <!-- Visualizer -->
   <include file="$(find pedsim_visualizer)/launch/visualizer.launch"/>
+
+  <!-- pedsim rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find pedsim_simulator)/rviz/pedsim_turtlebot.rviz" if="$(arg visualize)"/>
 
   <!-- ********************************** Gazebo and Turtlebot  ************************************** -->
   <arg name="world_file"  default="$(env GYM_GAZEBO_WORLD_PEDSIM)"/>
@@ -43,6 +37,11 @@
   <arg name="3d_sensor"  default="$(optenv TURTLEBOT_3D_SENSOR kinect)"/>  <!-- kinect, asus_xtion_pro -->
   <arg name="use_sim_time" default="false"/>
 
+  <!-- Turtlebot initial position -->
+  <arg name="initial_x" value="2.0"/>
+  <arg name="initial_y" value="2.0"/>
+  <arg name="initial_theta" value="0.0"/>
+
   <!-- Gazebo world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
@@ -53,18 +52,15 @@
   </include>
 
   <!-- Robot Model -->
-  <include file="$(find pedsim_simulator)/launch/includes/turtlebot.launch.xml">
+  <include file="$(find turtlebot_gazebo)/launch/includes/$(arg base).launch.xml">
     <arg name="base" value="$(arg base)" />
     <arg name="stacks" value="$(arg stacks)" />
     <arg name="3d_sensor" value="$(arg 3d_sensor)" />
-    <arg name="initial_pose" value="-x $(arg initial_x) -y $(arg initial_y) -z $(arg initial_theta)"/>
+    <!-- <arg name="initial_pose" value="-x $(arg initial_x) -y $(arg initial_y) -z $(arg initial_theta)"/> -->
   </include>
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
     <param name="publish_frequency" type="double" value="30.0" />
   </node>
-
-  <!-- pedsim rviz -->
-  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find pedsim_simulator)/rviz/pedsim_turtlebot.rviz" if="$(arg visualize)"/>
 
 </launch>
