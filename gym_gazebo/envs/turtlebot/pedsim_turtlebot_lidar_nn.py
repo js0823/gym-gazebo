@@ -60,8 +60,8 @@ class PedsimTurtlebotLidarNnEnv(gazebo_env.GazeboEnv):
         ang_vel = (action-10)*max_ang_speed*0.1 #from (-0.33 to + 0.33)
 
         vel_cmd = Twist()
-        #vel_cmd.linear.x = 0.2
-        vel_cmd.linear.x = 1.0
+        vel_cmd.linear.x = 0.2
+        #vel_cmd.linear.x = 1.0
         vel_cmd.angular.z = ang_vel
         self.vel_pub.publish(vel_cmd)
 
