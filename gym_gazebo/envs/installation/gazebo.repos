@@ -156,18 +156,18 @@ repositories:
     type: git
     url: https://github.com/yujinrobot/yujin_ocs
     version: devel
-#  geometry:
-#    type: git
-#    url: https://github.com/ros/geometry
-#    version: indigo-devel
-#  geometry2:
-#    type: git
-#    url: https://github.com/ros/geometry2
-#    version: indigo-devel
-#  vision_opencv:
-#    type: git
-#    url: https://github.com/ros-perception/vision_opencv.git
-#    version: kinetic
+  geometry:
+    type: git
+    url: https://github.com/ros/geometry
+    version: indigo-devel
+  geometry2:
+    type: git
+    url: https://github.com/ros/geometry2
+    version: indigo-devel
+  vision_opencv:
+    type: git
+    url: https://github.com/ros-perception/vision_opencv.git
+    version: kinetic
   pedsim_ros:
     type: git
     url: https://github.com/js0823/pedsim_ros.git

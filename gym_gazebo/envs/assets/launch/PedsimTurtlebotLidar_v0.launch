@@ -1,4 +1,5 @@
 <launch>
+  <param name="/use_sim_time" value="true"/>
   <arg name="kbd_teleop" default="false"/>
   <arg name="rqt_teleop" default="false"/>
   <arg name="visualize" default="false"/>
@@ -18,7 +19,7 @@
     <arg name="default_queue_size" value="10"/>
     <arg name="max_robot_speed" value="5"/>
     <arg name="robot_mode" value="1"/>
-    <arg name="enable_groups" value="true"/>
+    <arg name="enable_groups" value="false"/>
   </include>
 
   <!-- Visualizer -->
@@ -35,7 +36,7 @@
   <arg name="gui" default="true"/>
   <arg name="stacks"     default="$(optenv TURTLEBOT_STACKS hexagons)"/>  <!-- circles, hexagons -->
   <arg name="3d_sensor"  default="$(optenv TURTLEBOT_3D_SENSOR kinect)"/>  <!-- kinect, asus_xtion_pro -->
-  <arg name="use_sim_time" default="false"/>
+  <arg name="use_sim_time" default="true"/>
 
   <!-- Turtlebot initial position -->
   <arg name="initial_x" value="2.0"/>

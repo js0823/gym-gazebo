@@ -32,7 +32,6 @@ class PedsimTurtlebotLidarNnEnv(gazebo_env.GazeboEnv):
         done = False
         for i, item in enumerate(data.ranges):
             if (min_range > data.ranges[i] > 0):
-                print(data.ranges[i])
                 done = True
         return data.ranges,done
 
