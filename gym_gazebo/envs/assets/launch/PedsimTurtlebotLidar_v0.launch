@@ -1,5 +1,5 @@
 <launch>
-  <param name="/use_sim_time" value="true"/>
+  <param name="/use_sim_time" value="false"/>
   <arg name="kbd_teleop" default="false"/>
   <arg name="rqt_teleop" default="false"/>
   <arg name="visualize" default="false"/>
@@ -12,7 +12,7 @@
   <include file="$(find pedsim_simulator)/launch/simulator.launch">
     <arg name="kbd_teleop" value="$(arg kbd_teleop)"/>
     <arg name="rqt_teleop" value="$(arg rqt_teleop)"/>
-    <arg name="scene_file" value="$(find pedsim_simulator)scenarios/default_scenario.xml"/>
+    <arg name="scene_file" value="$(find pedsim_simulator)scenarios/default_scenario2.xml"/>
     <arg name="with_robot" value="$(arg with_robot)"/>
     <arg name="simulation_factor" value="$(arg simulation_factor)"/>
     <arg name="update_rate" value="$(arg update_rate)"/>
@@ -36,7 +36,7 @@
   <arg name="gui" default="true"/>
   <arg name="stacks"     default="$(optenv TURTLEBOT_STACKS hexagons)"/>  <!-- circles, hexagons -->
   <arg name="3d_sensor"  default="$(optenv TURTLEBOT_3D_SENSOR kinect)"/>  <!-- kinect, asus_xtion_pro -->
-  <arg name="use_sim_time" default="true"/>
+  <arg name="use_sim_time" default="false"/>
 
   <!-- Turtlebot initial position -->
   <arg name="initial_x" value="2.0"/>
