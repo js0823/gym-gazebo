@@ -8,10 +8,18 @@ from gym import utils, spaces
 from gym_gazebo.envs import gazebo_env
 from geometry_msgs.msg import Twist
 from std_srvs.srv import Empty
+from nav_msgs.msg import Odometry
 
 from sensor_msgs.msg import LaserScan
 
 from gym.utils import seeding
+
+tPosX = None
+tPosY = None
+
+def turtlebot_pos_callback(msg):
+    tPosX = msg.pose.pose.position.x
+    tPosY = msg.pose.pose.position.y
 
 class PedsimTurtlebotLidarNnEnv(gazebo_env.GazeboEnv):
 
@@ -22,6 +30,7 @@ class PedsimTurtlebotLidarNnEnv(gazebo_env.GazeboEnv):
         self.unpause = rospy.ServiceProxy('/gazebo/unpause_physics', Empty)
         self.pause = rospy.ServiceProxy('/gazebo/pause_physics', Empty)
         self.reset_proxy = rospy.ServiceProxy('/gazebo/reset_simulation', Empty)
+        self.odom_sub = rospy.Subscriber('/odom', Odometry, turtlebot_pos_callback)
 
         self.reward_range = (-np.inf, np.inf)
 
@@ -73,10 +82,14 @@ class PedsimTurtlebotLidarNnEnv(gazebo_env.GazeboEnv):
         state,done = self.calculate_observation(data)
 
         if not done:
-            # Straight reward = 5, Max angle reward = 0.5
-            reward = round(15*(max_ang_speed - abs(ang_vel) +0.0335), 2)
-            # print ("Action : "+str(action)+" Ang_vel : "+str(ang_vel)+" reward="+str(reward))
-        else:
+            if tPosX == 14.0 and tPosY == 14.0:
+                reward = 200
+                done = True
+            else:
+                # Straight reward = 5, Max angle reward = 0.5
+                reward = round(15*(max_ang_speed - abs(ang_vel) +0.0335), 2)
+                # print ("Action : "+str(action)+" Ang_vel : "+str(ang_vel)+" reward="+str(reward))
+        else: # crashed
             reward = -200
 
         return np.asarray(state), reward, done, {}
