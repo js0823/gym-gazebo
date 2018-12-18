@@ -25,3 +25,9 @@ After that, go back to the root of the gym-gazebo directory and run
 ```
 sudo pip install -e .
 ```
+
+## Running Guide ##
+Go to [gym-gazebo]/examples/turtlebot and run
+```
+python pedsim_turtlebot_dqn.py
+```
