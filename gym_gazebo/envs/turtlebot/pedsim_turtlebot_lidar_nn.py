@@ -82,8 +82,8 @@ class PedsimTurtlebotLidarNnEnv(gazebo_env.GazeboEnv):
         state,done = self.calculate_observation(data)
 
         if not done:
-            if tPosX == -4.0 and tPosY == -8.0:
-                reward = 200
+            if -4.0 < tPosX <= -3.5 and -8.0 <= tPosY <= -7.5:
+                reward = 500
                 done = True
             else:
                 # Straight reward = 5, Max angle reward = 0.5
