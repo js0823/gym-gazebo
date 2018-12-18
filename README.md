@@ -14,7 +14,7 @@ pip install rospkg catkin_pkg
 ```
 After the installation above are finished, download the project using this command on anywhere you want to download to:
 ```
-https://github.com/js0823/gym-gazebo.git
+git clone https://github.com/js0823/gym-gazebo.git
 ```
 Now, go to [gym-gazebo]/gym_gazebo/envs/installation and run
 ```
