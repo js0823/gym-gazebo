@@ -29,7 +29,7 @@
   <node pkg="rviz" type="rviz" name="rviz" args="-d $(find pedsim_simulator)/rviz/pedsim_turtlebot.rviz" if="$(arg visualize)"/>
 
   <!-- ********************************** Gazebo and Turtlebot  ************************************** -->
-  <arg name="world_file"  default="$(env GYM_GAZEBO_WORLD_PEDSIM)"/>
+  <arg name="world_file"  default="$(env GYM_GAZEBO_WORLD_CIRCUIT2)"/>
   <arg name="base"       default="$(optenv TURTLEBOT_BASE kobuki)"/>  <!-- base for turtlebot -->
   <arg name="battery"   value="$(optenv TURTLEBOT_BATTERY /proc/acpi/battery/BAT0)"/>  <!-- /proc/acpi/battery/BAT0 -->
   <arg name="paused" value="true"/>

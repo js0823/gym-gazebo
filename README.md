@@ -32,7 +32,7 @@ After that, go back to the root of the gym-gazebo directory and run
 sudo pip install -e .
 ```
 
-At the end, you should see the similar to the following lines on your ~/.bashrc file.
+At the end, you should see the similar to the following lines in your ~/.bashrc file.
 ```
 source /opt/ros/kinetic/setup.bash
 source [path_to_gym-gazebo]/gym-gazebo/gym_gazebo/envs/installation/catkin_ws/devel/setup.bash
