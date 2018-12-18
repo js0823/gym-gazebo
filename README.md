@@ -12,10 +12,11 @@ pip install opencv-python
 pip install gym
 pip install rospkg catkin_pkg
 ```
-After the installation above are finished,
-Go to [gym-gazebo]/gym_gazebo/envs/installation
-
-Run 
+After the installation above are finished, download the project using this command on anywhere you want to download to:
+```
+https://github.com/js0823/gym-gazebo.git
+```
+Now, go to [gym-gazebo]/gym_gazebo/envs/installation and run
 ```
 bash setup_kinetic.bash
 bash turtlebot_nn_setup.bash
