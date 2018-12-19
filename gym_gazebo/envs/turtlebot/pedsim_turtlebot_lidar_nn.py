@@ -42,6 +42,8 @@ class PedsimTurtlebotLidarNnEnv(gazebo_env.GazeboEnv):
         for i, item in enumerate(data.ranges):
             if (min_range > data.ranges[i] > 0):
                 done = True
+        if -4.0 < tPosX <= -3.5 and -8.0 <= tPosY <= -7.5:
+            done = True
         return data.ranges,done
 
     def _seed(self, seed=None):
@@ -55,8 +57,7 @@ class PedsimTurtlebotLidarNnEnv(gazebo_env.GazeboEnv):
         except (rospy.ServiceException) as e:
             print ("/gazebo/unpause_physics service call failed")
 
-        #max_ang_speed = 0.3
-        max_ang_speed = 1.0
+        max_ang_speed = 0.3
         ang_vel = (action-10)*max_ang_speed*0.1 #from (-0.33 to + 0.33)
 
         vel_cmd = Twist()
@@ -84,7 +85,6 @@ class PedsimTurtlebotLidarNnEnv(gazebo_env.GazeboEnv):
         if not done:
             if -4.0 < tPosX <= -3.5 and -8.0 <= tPosY <= -7.5:
                 reward = 500
-                done = True
             else:
                 # Straight reward = 5, Max angle reward = 0.5
                 reward = round(15*(max_ang_speed - abs(ang_vel) +0.0335), 2)

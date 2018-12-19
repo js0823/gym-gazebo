@@ -20,6 +20,7 @@ class LivePlot(object):
 
         #styling options
         matplotlib.rcParams['toolbar'] = 'None'
+        plt.title("Learning Curve")
         plt.style.use('ggplot')
         plt.xlabel("Episodes")
         plt.ylabel(data_key)
@@ -32,6 +33,7 @@ class LivePlot(object):
             data = gym.wrappers.Monitor.get_episode_lengths(env)
 
         plt.plot(data, color=self.line_color)
+        plt.savefig('learning_curve.png')
 
         # pause so matplotlib will display
         # may want to figure out matplotlib animation or use a different library in the future
